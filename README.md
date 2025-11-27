@@ -1,40 +1,42 @@
-# Ex.No:1(B) CONDITIONAL STATEMENT
+# Ex.No:3(F) WRAPPER CLASS
 
 ## QUESTION:
 
-In a magical building, an elevator behaves oddly:
-
-If the floor number is divisible by 3 and 5, it skips that floor.
-
-If the floor number is divisible by 3 only, it says "Beware!".
-
-If the floor number is divisible by 5 only, it says "Blessings!".
-
-Otherwise, it announces the floor number.
-
-Write a Java program to simulate this elevator logic for a given floor number.
-<img width="310" height="127" alt="image" src="https://github.com/user-attachments/assets/cfa02235-685d-472f-842a-fb5de9f061ad" />
+Write a Java program to check if a number is an Armstrong number using Math.pow() and the Integer wrapper class. Take input from the user.
+<img width="416" height="124" alt="Screenshot 2025-11-21 144525" src="https://github.com/user-attachments/assets/5f242592-1efb-46c7-ab3f-86b05a21a4c1" />
 
 ## AIM:
 
-To develop a Java program that checks a given floor number and displays a special
-message based on its divisibility by 3 and/or 5.
+To Write a Java program to check if a number is an Armstrong number using Math.pow() and the Integer wrapper class. Take input from the user.
 
 ## ALGORITHM :
 
-1.  Start the program and read the floor number from the user.
-2.  Check if the floor is divisible by both 3 and 5; if true, display "Skipped".
-3.  Otherwise, check if the floor is divisible only by 3; if true, display "Beware!".
-4.  Otherwise, check if the floor is divisible only by 5; if true, display "Blessings!".
-5.  If none of the above conditions are met, display "Floor {floor number}", then stop
-    the program.
+1.Start
+
+2.Read a number from the user.
+
+3.Convert the number to a string using Integer.toString(number) to count digits.
+
+4.Store the digit count.
+
+5.Use Math.pow(digit, numberOfDigits) to raise the digit to the power.
+
+6.Add the result to sum.
+
+7.Compare the sum with the original number.
+
+8.If equal → It is an Armstrong number.
+
+9.Else → Not an Armstrong number.
+
+10.End.
 
 ## PROGRAM:
 
 ```
 /*
-Program to implement a conditional statement using Java
-Developed by: pravin kumar G
+Program to implement a InnerClass using Java
+Developed by: Pravin kumar G
 RegisterNumber:  212222230109
 */
 ```
@@ -42,38 +44,36 @@ RegisterNumber:  212222230109
 ## SOURCE CODE:
 
 ```
-import java.util.*;
-public class java{
-    public static void main(String args[]){
-        int a;
-        Scanner sc=new Scanner(System.in);
-        a=sc.nextInt();
-        if(a%3==0 && a%5==0)
-        {
-            System.out.println("Skipped");
+import java.util.Scanner;
+
+public class ArmstrongCheck {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int num = sc.nextInt();
+        int originalNum = num;
+        int digits = Integer.toString(num).length();
+        int sum = 0;
+        while (num > 0) {
+            int digit = num % 10;
+            sum += Math.pow(digit, digits);
+            num /= 10;
         }
-        else if(a%3==0)
-        {
-            System.out.println("Beware!");
-        }
-        else if(a%5==0)
-        {
-            System.out.println("Blessings!");
-        }
-        else
-        {
-            System.out.println("Floor "+a);
+
+        if (sum == originalNum) {
+            System.out.println(originalNum + " is an Armstrong number.");
+        } else {
+            System.out.println(originalNum + " is not an Armstrong number.");
         }
     }
 }
+
 ```
 
 ## OUTPUT:
 
-<img width="588" height="282" alt="image" src="https://github.com/user-attachments/assets/dfbeda97-c306-4ac1-9e7e-042f8a150dd5" />
+<img width="846" height="200" alt="Screenshot 2025-11-21 144629" src="https://github.com/user-attachments/assets/6a1dd2e1-fc0e-4406-9e7b-40e29e368c4c" />
 
 ## RESULT:
 
-The program correctly prints “Skipped,” “Beware!,” “Blessings!,” or “Floor {number}”
-according to the elevator's magical rules.
+The program successfully checks whether the given number is an Armstrong number using Math.pow() and the Integer wrapper class, and displays the correct output.
 
